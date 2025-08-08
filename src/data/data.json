@@ -1,0 +1,64 @@
+{
+  "Header": {
+    "title": "Welcome!"
+  },
+  "About": {
+    "paragraph": "This is placeholder text often used in design, imitating Latin to focus attention on layout rather than content, roughly meaning that hard work and effort may lead to great outcomes, though not always immediately rewarding.",
+    "Why": [
+      "Expert and experienced team",
+      "Fast and reliable service",
+      "Transparent pricing with no hidden fees",
+      "Customer-first approach"
+    ],
+    "Why2": [
+      "High-quality standards",
+      "Trusted by hundreds of satisfied clients",
+      "Innovative and up-to-date solutions",
+      "Dedicated support available 24/7"
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/01-large.jpg",
+      "smallImage": "img/portfolio/01-small.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "CiCalendar",
+      "name": "Event Planning",
+      "text": "We plan and manage your events flawlessly."
+    }
+  ],
+  "Features": [
+    {
+      "icon": "FaComments",
+      "title": "Live Chat Support",
+      "text": "We provide 24/7 customer service through chat."
+    },
+    {
+      "icon": "FaBullhorn",
+      "title": "Promotional Tools",
+      "text": "Boost your visibility with effective promotions."
+    },
+    {
+      "icon": "FaUsers",
+      "title": "Team Collaboration",
+      "text": "Manage and coordinate your team seamlessly."
+    },
+    {
+      "icon": "FaMagic",
+      "title": "Custom Solutions",
+      "text": "We tailor solutions to your specific needs."
+    }
+  ],
+  "Contact": {
+    "address": "",
+    "phone": "",
+    "email": "",
+    "facebook": "fb.com",
+    "twitter": "twitter.com",
+    "youtube": "youtube.com"
+  }
+}
