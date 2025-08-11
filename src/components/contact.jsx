@@ -3,28 +3,33 @@ import emailjs from "emailjs-com";
 import React from "react";
 
 const initialState = {
-  name: "",
-  email: "",
+  from_name: "",
+  reply_to: "",
   message: "",
 };
+
 export const Contact = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState);
+  const [{ from_name, reply_to, message }, setState] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
+
   const clearState = () => setState({ ...initialState });
-  
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message);
-    
-    {/* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */ }
-    
+    console.log(from_name, reply_to, message);
+
+    // Replace with your own EmailJS credentials
     emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
+      .sendForm(
+        "service_b6m5bt7",
+        "template_u3yp7or",
+        e.target,
+        "b2tnwfJM6D5ZIHsP4"
+      )
       .then(
         (result) => {
           console.log(result.text);
@@ -35,6 +40,7 @@ export const Contact = (props) => {
         }
       );
   };
+
   return (
     <div>
       <div id="contact">
@@ -55,7 +61,7 @@ export const Contact = (props) => {
                       <input
                         type="text"
                         id="name"
-                        name="name"
+                        name="from_name" // updated
                         className="form-control"
                         placeholder="Name"
                         required
@@ -69,7 +75,7 @@ export const Contact = (props) => {
                       <input
                         type="email"
                         id="email"
-                        name="email"
+                        name="from_name" // updated
                         className="form-control"
                         placeholder="Email"
                         required

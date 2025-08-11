@@ -6,23 +6,26 @@ export const Gallery = (props) => {
     <div id="portfolio" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Events</h2>
+          <h2>EXCLUSIVE PROMOTIONS</h2>
           <p>
-           This is our Events a showcase of work, crafted with care and creativity.
+            Unlock amazing deals and special offers! Don’t miss out—crafted just for you with unbeatable value and creativity.
           </p>
         </div>
-        <div className="flex col">
-          <div className="portfolio-items">
+        <div className="flex justify-center">
+          <div className="portfolio-items flex flex-wrap justify-center gap-4">
             {props.data
               ? props.data.map((d, i) => (
                   <div
                     key={`${d.title}-${i}`}
-                    className="col-sm-6 col-md-4 col-lg-4">
-                    <Image 
-                      title={d.title}
-                      largeImage={d.largeImage}
-                      smallImage={d.smallImage}
-                    />
+                    className="col-sm-6 col-md-4 col-lg-4 flex justify-center"
+                  >
+                    <div className="relative group">
+                      <Image
+                        title={d.title}
+                        largeImage={d.largeImage}
+                        smallImage={d.smallImage}
+                      />
+                    </div>
                   </div>
                 ))
               : "Loading..."}

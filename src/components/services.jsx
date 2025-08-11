@@ -1,19 +1,21 @@
 import React from "react";
 import { CiCalendar } from "react-icons/ci";
-import {
-  FaUsers,
-  FaMagic,
-  FaBullhorn,
-  FaComments,
-} from "react-icons/fa";
+import { CiMonitor } from "react-icons/ci";
 
 export const Services = () => {
   const services = [
     {
-      name: "Event Hosting",
+      name: "Event Management",
       text: "Launch and manage your events with ease.",
       icon: CiCalendar,
       link: "https://event.sari-sari.com/?fbclid=IwY2xjawMCMCpleHRuA2FlbQIxMABicmlkETF0cTRLb2VFd3ZLRWxTaXRYAR65KxD_gQ_1wHyd7t1O7xCBaDD6Cl4lgwjGPQD5D7_3_B_1wZe7k9Ae_923RQ_aem_5RfUuVtDyUHXDoqCcqFB6A"
+    },
+
+     {
+      name: "Web Development",
+      text: "Design and manage your event site with ease.",
+      icon: CiMonitor,
+      link: ""
     },
     
   ];

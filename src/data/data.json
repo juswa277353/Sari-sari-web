@@ -3,23 +3,21 @@
     "title": "Welcome!"
   },
   "About": {
-    "paragraph": "This is placeholder text often used in design, imitating Latin to focus attention on layout rather than content, roughly meaning that hard work and effort may lead to great outcomes, though not always immediately rewarding.",
+    "paragraph": "We are dedicated to helping you create, manage, and showcase unforgettable events. Our platform blends user-friendly design with powerful tools, making it simple to plan, launch, and monitor your events from start to finish. With a passion for innovation and a commitment to excellence, we aim to turn your vision into a seamless reality.",
     "Why": [
       "Expert and experienced team",
       "Fast and reliable service",
-      "Transparent pricing with no hidden fees",
       "Customer-first approach"
     ],
     "Why2": [
       "High-quality standards",
-      "Trusted by hundreds of satisfied clients",
       "Innovative and up-to-date solutions",
       "Dedicated support available 24/7"
     ]
   },
   "Gallery": [
     {
-      "title": "Project Title",
+      "title": "",
       "largeImage": "img/portfolio/01-large.jpg",
       "smallImage": "img/portfolio/01-small.jpg"
     }
@@ -54,11 +52,8 @@
     }
   ],
   "Contact": {
-    "address": "",
-    "phone": "",
-    "email": "",
-    "facebook": "fb.com",
-    "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "address": "#64 Aguirre Ave., Pilar Village Phase V, Zone XI, Las Piñas City, Metro Manila, Philippines",
+    "phone": "09178135511",
+    "email": "info@sari-sari.com"
   }
 }
