@@ -19,11 +19,11 @@ export const Gallery = (props) => {
                     key={`${d.title}-${i}`}
                     className="col-sm-6 col-md-4 col-lg-4 flex justify-center"
                   >
-                    <div className="relative group">
+                    <div className="relative group w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
                       <Image
                         title={d.title}
                         largeImage={d.largeImage}
-                        smallImage={d.smallImage}
+                        smallImage={d.smallImage} 
                       />
                     </div>
                   </div>
