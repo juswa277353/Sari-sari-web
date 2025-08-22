@@ -10,6 +10,7 @@ const initialState = {
 
 export const Contact = (props) => {
   const [{ from_name, reply_to, message }, setState] = useState(initialState);
+  const [submissionStatus, setSubmissionStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +23,6 @@ export const Contact = (props) => {
     e.preventDefault();
     console.log(from_name, reply_to, message);
 
-    // Replace with your own EmailJS credentials
     emailjs
       .sendForm(
         "service_b6m5bt7",
@@ -33,10 +33,18 @@ export const Contact = (props) => {
       .then(
         (result) => {
           console.log(result.text);
-          clearState();
+          setSubmissionStatus({
+            message: "Your message has been sent successfully!",
+            type: "success",
+          });
+          clearState(); // This function now works correctly to clear the fields.
         },
         (error) => {
           console.log(error.text);
+          setSubmissionStatus({
+            message: "Oops! Something went wrong. Please try again later.",
+            type: "error",
+          });
         }
       );
   };
@@ -54,6 +62,18 @@ export const Contact = (props) => {
                   get back to you as soon as possible.
                 </p>
               </div>
+              {submissionStatus && (
+                <div
+                  className={`alert ${
+                    submissionStatus.type === "success"
+                      ? "alert-success"
+                      : "alert-danger"
+                  }`}
+                  role="alert"
+                >
+                  {submissionStatus.message}
+                </div>
+              )}
               <form name="sentMessage" validate onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-6">
@@ -61,11 +81,12 @@ export const Contact = (props) => {
                       <input
                         type="text"
                         id="name"
-                        name="from_name" // updated
+                        name="from_name"
                         className="form-control"
                         placeholder="Name"
                         required
                         onChange={handleChange}
+                        value={from_name} // Added value prop
                       />
                       <p className="help-block text-danger"></p>
                     </div>
@@ -75,11 +96,12 @@ export const Contact = (props) => {
                       <input
                         type="email"
                         id="email"
-                        name="from_name" // updated
+                        name="reply_to"
                         className="form-control"
                         placeholder="Email"
                         required
                         onChange={handleChange}
+                        value={reply_to} // Added value prop
                       />
                       <p className="help-block text-danger"></p>
                     </div>
@@ -94,6 +116,7 @@ export const Contact = (props) => {
                     placeholder="Message"
                     required
                     onChange={handleChange}
+                    value={message} // Added value prop
                   ></textarea>
                   <p className="help-block text-danger"></p>
                 </div>
