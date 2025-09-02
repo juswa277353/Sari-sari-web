@@ -223,16 +223,30 @@ a:focus,
 }
 
 /* Header Section */
+/* Header Section with Background Carousel */
 .intro {
   display: table;
   width: 100%;
-  padding: 10;
-  background: url(../img/intro-bg.png) center center no-repeat;
-  background-color: #e5e5e5;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+  height: 100vh; /* Full screen height */
+  padding: 0;
+  background-size: cover;       /* always fill screen */
+  background-position: center;  /* keep image centered */
+  background-repeat: no-repeat; /* no tiling */
+  background-attachment: fixed; /* optional: gives parallax effect */
+  animation: slideshow 18s infinite ease-in-out; /* auto cycle */
+}
+
+/* Keyframes for image transitions */
+@keyframes slideshow {
+  0%   { background-image: url('../img/intro-bg.png'); }
+  33%  { background-image: url('../img/bg.jpg'); }
+  66%  { background-image: url('../img/intro1.jpg'); }
+  100% { background-image: url('../img/intro3.jpg'); }
+}
+
+/* Optional fade effect (smooth transition between slides) */
+.intro {
+  animation-timing-function: ease-in-out;
 }
 
 .intro h1 {
