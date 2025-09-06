@@ -75,28 +75,61 @@ hr {
   padding: 15px;
   transition: all 0.8s;
 }
+
+/* Make navbar stick to the top on scroll */
+#menu.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* keep it above all content */
+}
+
+/* Push page content down so it's not hidden under navbar */
+body {
+  padding-top: 70px; /* same as navbar height */
+}
+
+
 #menu.navbar-default {
   background-color: #fff;
-  border-color: rgba(231, 231, 231, 0);
+  border-color: transparent;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
+
+/* Logo on the left */
+/* Ensure navbar brand (logo) stays on the left */
 #menu a.navbar-brand {
-  font-family: "Raleway", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #333;
-  text-transform: uppercase;
+  float: left !important;       /* force left alignment */
+  margin-right: auto !important; /* push everything else away */
+  display: flex;
+  align-items: center;
 }
+
+
+/* Nav links on the right */
+#menu .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: center;
+  margin-left: auto; /* push to the right */
+}
+
+#menu .navbar-nav > li {
+  float: none; /* override bootstrap float */
+  position: relative;
+}
+
+/* Make navbar links bigger */
 #menu.navbar-default .navbar-nav > li > a {
-  font-family: "Lato", sans-serif;
-  text-transform: uppercase;
-  color: #555;
-  font-size: 15px;
-  font-weight: 400;
-  padding: 8px 2px;
-  border-radius: 0;
-  margin: 9px 20px 0;
+  font-size: 50px;   /* bigger font */
+  font-weight: 600;  /* bolder text */
+  padding: 12px 8px; /* more spacing for bigger text */
 }
+
+
+/* Hover underline */
 #menu.navbar-default .navbar-nav > li > a:after {
   display: block;
   position: absolute;
@@ -106,51 +139,60 @@ hr {
   height: 2px;
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
   content: "";
-  transition: width 0.2s;
-}
-/* Hover underline */
-#menu.navbar-default .navbar-nav > li > a:hover:after {
-  width: 100%;
-  transition: width 0.3s ease; /* smoother animation */
+  transition: width 0.3s ease;
 }
 
-/* Active menu link */
+#menu.navbar-default .navbar-nav > li > a:hover:after {
+  width: 100%;
+}
+
+/* Active link underline */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   background-color: transparent;
 }
 
-/* Gradient underline for active link */
-.navbar-default .navbar-nav > .active > a:after,
-.navbar-default .navbar-nav > .active > a:hover:after,
-.navbar-default .navbar-nav > .active > a:focus:after {
-  display: block !important;
-  position: absolute !important;
-  left: 0 !important;
-  bottom: -1px !important;
-  width: 100% !important;
-  height: 2px !important;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%) !important;
-  content: "" !important;
-  transition: width 0.3s ease !important; /* smoother */
+.navbar-default .navbar-nav > .active > a:after {
+  width: 100%;
 }
 
 /* Navbar toggle button */
 .navbar-toggle {
-  border-radius: 4px; /* slightly rounded */
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #333;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #fff;
+  background-color: #608dfd;
   border-color: #608dfd;
 }
 
-.navbar-default .navbar-toggle:hover > .icon-bar {
-  background-color: #608dfd;
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+  background-color: #fff;
+}
+
+/* Responsive behavior: stack items on mobile */
+@media (max-width: 768px) {
+  #menu .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 0;
+  }
+  #menu .navbar-nav > li {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Toggle icon bars smoother */
@@ -222,31 +264,60 @@ a:focus,
   outline-offset: none;
 }
 
-/* Header Section */
-/* Header Section with Background Carousel */
-.intro {
-  display: table;
+
+/* Gray background behind carousel */
+.header-section {
+  background-color: #f0f0f0; /* light gray */
   width: 100%;
-  height: 100vh; /* Full screen height */
-  padding: 0;
-  background-size: cover;       /* always fill screen */
-  background-position: center;  /* keep image centered */
-  background-repeat: no-repeat; /* no tiling */
-  background-attachment: fixed; /* optional: gives parallax effect */
-  animation: slideshow 18s infinite ease-in-out; /* auto cycle */
+  padding: 40px 0;           /* spacing around */
 }
 
-/* Keyframes for image transitions */
-@keyframes slideshow {
-  0%   { background-image: url('../img/intro-bg.png'); }
-  33%  { background-image: url('../img/bg.jpg'); }
-  66%  { background-image: url('../img/intro1.jpg'); }
-  100% { background-image: url('../img/intro3.jpg'); }
+/* Optional: center the carousel */
+.carousel-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  background: #fff; /* white card on gray bg */
 }
 
-/* Optional fade effect (smooth transition between slides) */
-.intro {
-  animation-timing-function: ease-in-out;
+.carousel-card img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
+
+/* Captions inside card */
+.carousel-card .carousel-caption {
+  bottom: 12%;
+  text-align: center;
+}
+
+.carousel-card .carousel-caption h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.carousel-card .carousel-caption p {
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .carousel-card {
+    max-width: 95%;
+  }
+  .carousel-card img {
+    height: 220px;
+  }
+  .carousel-card .carousel-caption h1 {
+    font-size: 1.2rem;
+  }
+  .carousel-card .carousel-caption p {
+    font-size: 0.8rem;
+  }
 }
 
 .intro h1 {

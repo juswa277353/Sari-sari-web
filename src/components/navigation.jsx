@@ -1,61 +1,32 @@
 import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export const Navigation = (props) => {
+export const Navigation = () => {
   return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-      <div className="container">
-        <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-          >
-            {" "}
-            <span className="sr-only">Toggle navigation</span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-          </button>
-         <a className="navbar-brand page-scroll" href="#page-top">
-  <img
-    src="/img/nav head.png"
-    alt="Logo"
-    style={{ height: "200%", maxHeight: "55px", objectFit: "contain" }}
-  />
-</a>
-{" "}
-        </div>
+    <Navbar bg="light" expand="lg" fixed="top">
+      <Container>
+        {/* Logo left */}
+        <Navbar.Brand href="#page-top">
+          <img
+            src="/img/nav head.png"
+            alt="Logo"
+            style={{ height: "40px", objectFit: "contain" }}
+          />
+        </Navbar.Brand>
 
-        <div
-          className="collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1"
-        >
-          <ul className="nav navbar-nav navbar-right">
-            <li>
-              <a href="#about" className="page-scroll">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#services" className="page-scroll">
-                Products
-              </a>
-            </li>
-            <li>
-              <a href="#portfolio" className="page-scroll">
-                Promotions
-              </a>
-            </li>
-        
-            <li>
-              <a href="#contact" className="page-scroll">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+        {/* Mobile burger toggle */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          {/* Links right */}
+          <Nav className="ms-auto fs-4 fw-bold gap-4">
+            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="#services">Products</Nav.Link>
+            <Nav.Link href="#portfolio">Promotions</Nav.Link>
+            <Nav.Link href="#contact">Contact</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
